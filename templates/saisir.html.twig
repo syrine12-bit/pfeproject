@@ -1,0 +1,867 @@
+{% extends 'base.html.twig' %}
+            {% block body %}
+                <section>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="container ms-0 mt-5">
+                                    <div class="row align-items-start">
+                                        {% for message in app.flashes('notice') %}
+                                            <div class="alert alert-success">{{ message }}</div>
+                                        {% endfor %}
+
+                                        <div class="col">
+                                            {{ form_start(form) }}
+                                            <div class="accordion" id="accordionPanelsStayOpenExample">
+                                                <div class="accordion-item mt-5 ms-0 ">
+                                                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                                        <button class="accordion-button ms-0" type="button"
+                                                                data-bs-toggle="collapse"
+                                                                data-bs-target="#panelsStayOpen-collapseOne"
+                                                                aria-expanded="true"
+                                                                aria-controls="panelsStayOpen-collapseOne">
+                                                            Informations personnelles
+                                                        </button>
+                                                    </h2>
+                                                    <div id="panelsStayOpen-collapseOne"
+                                                         class="accordion-collapse collapse show"
+                                                         aria-labelledby="panelsStayOpen-headingOne">
+                                                        <div class="accordion-body mb-3">
+                                                            <div class="row">
+                                                                <div class="col mb-">
+                                                                    <label class="required">
+                                                                        <span class="text-dark">Prénom </span>
+                                                                        <span class="text-danger">*</span>
+                                                                    </label>
+                                                                    {{ form_widget(form.prenom,{'attr':{'class':'form-control mb-2' , 'required': true}}) }}
+                                                                </div>
+                                                                <div class="col">
+                                                                    <label class="required">
+                                                                        <span class="text-dark">Nom de famille </span>
+                                                                        <span class="text-danger">*</span>
+                                                                    </label>
+                                                                    {{ form_widget(form.nom_de_famille,{'attr':{'class':'form-control mb-2' ,'required': true}}) }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label class="required">
+                                                                    <span class="text-dark">Adresse email </span>
+                                                                    <span class="text-danger">*</span>
+                                                                </label>
+                                                                {{ form_widget(form.email,{'attr':{'class':'form-control mb-3' ,'required': true}}) }}
+                                                            </div>
+                                                            <div class="mb-3 ">
+                                                                {{ form_label(form.titre_du_profil, 'Titre du profil ', {'label_attr': {'class': 'text-dark'}}) }}
+                                                                {{ form_widget(form.titre_du_profil,{'attr':{'class':'form-control mb-3','required': false}}) }}
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label class="required">
+                                                                    <span class="text-dark">Numéro de téléphone </span>
+                                                                    <span class="text-danger">*</span>
+                                                                </label>
+                                                                {{ form_widget(form.numero,{'attr':{'class':'form-control mb-3' ,'required': true}}) }}
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                {{ form_label(form.adresse, 'Adresse', {'label_attr': {'class': 'text-dark'}}) }}
+                                                                {{ form_widget(form.adresse,{'attr':{'class':'form-control mb-3' ,'required': false}}) }}
+                                                            </div>
+                                                            <div class="row g-6">
+                                                                <div class="col-sm-7">
+                                                                    {{ form_label(form.codePostal, 'Code postal', {'label_attr': {'class': 'text-dark'}}) }}
+                                                                    {{ form_widget(form.codePostal,{'attr':{'class':'form-control mb-3' ,'required': false}}) }}
+                                                                </div>
+                                                                <div class="col-sm">
+                                                                    {{ form_label(form.ville, 'Ville', {'label_attr': {'class': 'text-dark'}}) }}
+                                                                    {{ form_widget(form.ville,{'attr':{'class':'form-control mb-3' ,'required': false}}) }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                                        <button class="accordion-button collapsed" type="button"
+                                                                data-bs-toggle="collapse"
+                                                                data-bs-target="#panelsStayOpen-collapseTwo"
+                                                                aria-expanded="false"
+                                                                aria-controls="panelsStayOpen-collapseTwo">
+                                                            Profil
+                                                        </button>
+                                                    </h2>
+                                                    <div id="panelsStayOpen-collapseTwo"
+                                                         class="accordion-collapse collapse"
+                                                         aria-labelledby="panelsStayOpen-headingTwo">
+                                                        <div class="accordion-body">
+                                                            <div class="mb-3">
+                                                                {{ form_widget(form.profil, {'attr': {'class': 'form-control mb-3', 'rows': 5 ,'required': false,'placeholder':'Description de profil'}}) }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                                                        <button class="accordion-button collapsed" type="button"
+                                                                data-bs-toggle="collapse"
+                                                                data-bs-target="#panelsStayOpen-collapseThree"
+                                                                aria-expanded="false"
+                                                                aria-controls="panelsStayOpen-collapseThree">
+                                                            Formation
+                                                        </button>
+                                                    </h2>
+                                                    <div id="panelsStayOpen-collapseThree"
+                                                         class="accordion-collapse collapse"
+                                                         aria-labelledby="panelsStayOpen-headingThree">
+                                                        <div class="accordion-body" id="field-container">
+                                                            <div class="mb-3">
+                                                                {{ form_widget(form.formation,{'attr':{'class':'form-control mb-3' ,'required': false,'placeholder':'Formation'}}) }}
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                {{ form_widget(form.niveauEtudes,{'attr':{'class':'form-control mb-3' ,'required': false,'placeholder':'Niveau d\'etudes'}}) }}
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col">{{ form_widget(form.etablissement,{'attr':{'class':'form-control mb-3' ,'required': false,'placeholder':'Établissement'}}) }}</div>
+                                                                <div class="col">{{ form_widget(form.lieu,{'attr':{'class':'form-control mb-3' ,'required': false,'placeholder':'ville'}}) }}</div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    {{ form_label(form.dateDebut, 'Date debut', {'label_attr': {'class': 'text-dark'}}) }}
+                                                                    {{ form_widget(form.dateDebut,{'attr':{'class':' mb-3' ,'required': false}}) }}
+                                                                </div>
+                                                                <div class="col">
+                                                                    {{ form_label(form.dateFin, 'Date fin') }}
+                                                                    {{ form_widget(form.dateFin,{'attr':{'class':' mb-3' ,'required': false}}) }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                {{ form_widget(form.description, {'attr': {'class': 'form-control mb-3', 'rows': 5,'required': false,'placeholder':'Description'}}) }}
+                                                            </div>
+                                                            <div class="mb-3 mt-3 text-end">
+                                                                <button class="btn btn-primary add-btn">Ajouter</button>
+                                                                <button class="btn btn-danger delete-btn">Supprimer
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="panelsStayOpen-headingfour">
+                                                        <button class="accordion-button collapsed" type="button"
+                                                                data-bs-toggle="collapse"
+                                                                data-bs-target="#panelsStayOpen-collapsefour"
+                                                                aria-expanded="false"
+                                                                aria-controls="panelsStayOpen-collapsefour">
+                                                            Expérience professionnelle
+                                                        </button>
+                                                    </h2>
+                                                    <div id="panelsStayOpen-collapsefour"
+                                                         class="accordion-collapse collapse"
+                                                         aria-labelledby="panelsStayOpen-headingfour">
+                                                        <div class="accordion-body" id="field-container1">
+                                                            <div class="mb-3">
+                                                                {{ form_widget(form.poste,{'attr':{'class':'form-control mb-3' ,'required': false,'placeholder':'Poste'}}) }}
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                {{ form_widget(form.employer,{'attr':{'class':'form-control mb-3','required': false,'placeholder':'Employer'}}) }}
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    {{ form_label(form.dateDebutTravaille, 'Date debut') }}
+                                                                    {{ form_widget(form.dateDebutTravaille,{'attr':{'class':' mb-3' ,'required': false}}) }}
+                                                                </div>
+                                                                <div class="col">
+                                                                    {{ form_label(form.dateFinTravaille, 'Date fin') }}
+                                                                    {{ form_widget(form.dateFinTravaille,{'attr':{'class':' mb-3' ,'required': false}}) }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                {{ form_widget(form.descriptionTravaille, {'attr': {'class': 'form-control mb-3', 'rows': 5,'required': false,'placeholder':'Description'}}) }}
+                                                            </div>
+
+                                                            <div class="mb-3 mt-3 text-end">
+                                                                <button class="btn btn-primary add-btn">
+                                                                    Ajouter
+                                                                </button>
+                                                                <button class="btn btn-danger delete-btn">
+                                                                    Supprimer
+                                                                </button>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="panelsStayOpen-headingfive">
+                                                        <button class="accordion-button collapsed" type="button"
+                                                                data-bs-toggle="collapse"
+                                                                data-bs-target="#panelsStayOpen-collapsefive"
+                                                                aria-expanded="false"
+                                                                aria-controls="panelsStayOpen-collapsefive">
+                                                            Compétences
+                                                        </button>
+                                                    </h2>
+                                                    <div id="panelsStayOpen-collapsefive"
+                                                         class="accordion-collapse collapse"
+                                                         aria-labelledby="panelsStayOpen-headingfive">
+                                                        <div class="accordion-body" id="field-container2">
+                                                            <div class="mb-3">
+                                                                {{ form_widget(form.competence,{'attr':{'class':'form-control mb-3' ,'required': false,'placeholder':'Compétence'}}) }}
+                                                            </div>
+                                                            <div class="mb-3 mt-3 text-end">
+                                                                <button class="btn btn-primary add-btn">Ajouter</button>
+                                                                <button class="btn btn-danger delete-btn">Supprimer
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="panelsStayOpen-headingfive">
+                                                        <button class="accordion-button collapsed" type="button"
+                                                                data-bs-toggle="collapse"
+                                                                data-bs-target="#panelsStayOpen-collapsefive"
+                                                                aria-expanded="false"
+                                                                aria-controls="panelsStayOpen-collapsefive">
+                                                            Langue
+                                                        </button>
+                                                    </h2>
+                                                    <div id="panelsStayOpen-collapsefive"
+                                                         class="accordion-collapse collapse"
+                                                         aria-labelledby="panelsStayOpen-headingfive">
+                                                        <div class="accordion-body" id="field-container3">
+                                                            <div class="mb-3">
+                                                                {{ form_widget(form.langue,{'attr':{'class':'form-control mb-3' ,'required': false,'placeholder':'Langue'}}) }}
+                                                            </div>
+                                                            <div class="mb-3 mt-3 text-end">
+                                                                <button class="btn btn-primary add-btn">Ajouter</button>
+                                                                <button class="btn btn-danger delete-btn">Supprimer
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="panelsStayOpen-headingfive">
+                                                        <button class="accordion-button collapsed" type="button"
+                                                                data-bs-toggle="collapse"
+                                                                data-bs-target="#panelsStayOpen-collapsefive"
+                                                                aria-expanded="false"
+                                                                aria-controls="panelsStayOpen-collapsefive">
+                                                            Centres d'intérêt
+                                                        </button>
+                                                    </h2>
+                                                    <div id="panelsStayOpen-collapsefive"
+                                                         class="accordion-collapse collapse"
+                                                         aria-labelledby="panelsStayOpen-headingfive">
+                                                        <div class="accordion-body" id="field-container4">
+                                                            <div class="mb-3">
+                                                                {{ form_widget(form.interet,{'attr':{'class':'form-control mb-3' ,'required': false,'placeholder':'Centres d\'intérêt'}}) }}
+                                                            </div>
+                                                            <div class="mb-3 mt-3 text-end">
+                                                                <button class="btn btn-primary add-btn">Ajouter</button>
+                                                                <button class="btn btn-danger delete-btn">Supprimer
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ form_end(form) }}
+
+                                {# <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                                Profil
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                                            <div class="accordion-body">
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                                                Formation
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                                            <div class="accordion-body">
+                                                <div class="mb-3">
+                                                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Formation">
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <input type="text" class="form-control" placeholder="Établissement" aria-label="Établissement ">
+                                                    </div>
+                                                    <div class="col">
+                                                        <input type="text" class="form-control" placeholder="Ville" aria-label="Ville">
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-3">
+                                                    <div class="col">
+                                                        <label for="inputEmail4" class="form-label">Date de début</label>
+                                                        <select id="inputState" class="form-select">
+                                                            <option selected>Mois</option>
+                                                            <option>janvier</option>
+                                                            <option> février</option>
+                                                            <option>mars</option>
+                                                            <option>avril</option>
+                                                            <option>mai</option>
+                                                            <option>juin</option>
+                                                            <option>juillet</option>
+                                                            <option>août</option>
+                                                            <option>septembre</option>
+                                                            <option>octobre</option>
+                                                            <option>novembre</option>
+                                                            <option>décembre</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col mt-2">
+                                                        <label for="inputEmail4" class="form-label"></label>
+                                                        <select id="inputState" class="form-select">
+                                                            <option selected>Année</option>
+                                                            <option>2022</option>
+                                                            <option>2021</option>
+                                                            <option>2020</option>
+                                                            <option>2019</option>
+                                                            <option>2018</option>
+                                                            <option>2017</option>
+                                                            <option>2016</option>
+                                                            <option>2015</option>
+                                                            <option>2014</option>
+                                                            <option>2013</option>
+                                                            <option>2012</option>
+                                                            <option>2011</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="inputEmail4" class="form-label">Date de fin</label>
+                                                        <select id="inputState" class="form-select">
+                                                            <option selected>Mois</option>
+                                                            <option>janvier</option>
+                                                            <option> février</option>
+                                                            <option>mars</option>
+                                                            <option>avril</option>
+                                                            <option>mai</option>
+                                                            <option>juin</option>
+                                                            <option>juillet</option>
+                                                            <option>août</option>
+                                                            <option>septembre</option>
+                                                            <option>octobre</option>
+                                                            <option>novembre</option>
+                                                            <option>décembre</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col mt-2">
+                                                        <label for="inputEmail4" class="form-label"></label>
+                                                        <select id="inputState" class="form-select">
+                                                            <option selected class="disabled">Année</option>
+                                                            <option>2023</option>
+                                                            <option>2022</option>
+                                                            <option>2021</option>
+                                                            <option>2020</option>
+                                                            <option>2019</option>
+                                                            <option>2018</option>
+                                                            <option>2017</option>
+                                                            <option>2016</option>
+                                                            <option>2015</option>
+                                                            <option>2014</option>
+                                                            <option>2013</option>
+                                                            <option>2012</option>
+                                                            <option>2011</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3 mt-3">
+                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Description"></textarea>
+                                                </div>
+                                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                    <button class="btn btn-primary" type="button mt-3 mb-5">Terminé</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingfour">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsefour" aria-expanded="false" aria-controls="panelsStayOpen-collapsefour">
+                                                Expérience professionnelle
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapsefour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingfour">
+                                            <div class="accordion-body">
+                                                <div class="mb-3">
+                                                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Poste">
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <input type="text" class="form-control" placeholder="Employer" aria-label="Employer">
+                                                    </div>
+                                                    <div class="col">
+                                                        <input type="text" class="form-control" placeholder="Ville" aria-label="Ville">
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-3">
+                                                    <div class="col">
+                                                        <label for="inputEmail4" class="form-label">Date de début</label>
+                                                        <select id="inputState" class="form-select">
+                                                            <option selected>Mois</option>
+                                                            <option>janvier</option>
+                                                            <option> février</option>
+                                                            <option>mars</option>
+                                                            <option>avril</option>
+                                                            <option>mai</option>
+                                                            <option>juin</option>
+                                                            <option>juillet</option>
+                                                            <option>août</option>
+                                                            <option>septembre</option>
+                                                            <option>octobre</option>
+                                                            <option>novembre</option>
+                                                            <option>décembre</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col mt-2">
+                                                        <label for="inputEmail4" class="form-label"></label>
+                                                        <select id="inputState" class="form-select">
+                                                            <option selected>Année</option>
+                                                            <option>2022</option>
+                                                            <option>2021</option>
+                                                            <option>2020</option>
+                                                            <option>2019</option>
+                                                            <option>2018</option>
+                                                            <option>2017</option>
+                                                            <option>2016</option>
+                                                            <option>2015</option>
+                                                            <option>2014</option>
+                                                            <option>2013</option>
+                                                            <option>2012</option>
+                                                            <option>2011</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="inputEmail4" class="form-label">Date de fin</label>
+                                                        <select id="inputState" class="form-select">
+                                                            <option selected>Mois</option>
+                                                            <option>janvier</option>
+                                                            <option> février</option>
+                                                            <option>mars</option>
+                                                            <option>avril</option>
+                                                            <option>mai</option>
+                                                            <option>juin</option>
+                                                            <option>juillet</option>
+                                                            <option>août</option>
+                                                            <option>septembre</option>
+                                                            <option>octobre</option>
+                                                            <option>novembre</option>
+                                                            <option>décembre</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col mt-2">
+                                                        <label for="inputEmail4" class="form-label"></label>
+                                                        <select id="inputState" class="form-select">
+                                                            <option selected class="disabled">Année</option>
+                                                            <option>2023</option>
+                                                            <option>2022</option>
+                                                            <option>2021</option>
+                                                            <option>2020</option>
+                                                            <option>2019</option>
+                                                            <option>2018</option>
+                                                            <option>2017</option>
+                                                            <option>2016</option>
+                                                            <option>2015</option>
+                                                            <option>2014</option>
+                                                            <option>2013</option>
+                                                            <option>2012</option>
+                                                            <option>2011</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3 mt-3">
+                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Description"></textarea>
+                                                </div>
+                                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                    <button class="btn btn-primary" type="button mt-5 mb-5">Terminé</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingfive">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsefive" aria-expanded="false" aria-controls="panelsStayOpen-collapsefive">
+                                                Compétences
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapsefive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingfive">
+                                            <div class="accordion-body">
+                                                <div class="mb-3">
+                                                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Compétence">
+                                                </div>
+                                                <div class="progress mt-5 mb-3">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                    <button class="btn btn-primary" type="button mt-5 mb-5">Terminé</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingsix">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsesix" aria-expanded="false" aria-controls="panelsStayOpen-collapsesix">
+                                                Langues
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapsesix" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingsix">
+                                            <div class="accordion-body">
+                                                <div class="mb-3">
+                                                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Langue">
+                                                </div>
+                                                <div class="progress mt-5 mb-3">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                    <button class="btn btn-primary" type="button mt-5 mb-5">Terminé</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingseven">
+                                            <button class="accordion-button collapsed" type="button mb-5" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseseven" aria-expanded="false" aria-controls="panelsStayOpen-collapseseven">
+                                                Centres d'intérêt
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseseven" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingseven">
+                                            <div class="accordion-body">
+                                                <div class="mb-3">
+                                                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Intérêt">
+                                                </div>
+                                                <div class="progress mt-5 mb-3">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                    <button class="btn btn-primary" type="button mt-5 mb-5">Terminé</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <button type="button" class="btn btn-outline-dark mt-3 mb-5" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><span> + </span> Cours</button>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Cours</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="mb-3">
+                                                        <input type="text" class="form-control" id="recipient-name" placeholder="Cours">
+                                                    </div>
+                                                    <div class="row mt-3">
+                                                        <div class="col">
+                                                            <label for="inputEmail4" class="form-label">Début</label>
+                                                            <select id="inputState" class="form-select">
+                                                                <option selected>Mois</option>
+                                                                <option>janvier</option>
+                                                                <option> février</option>
+                                                                <option>mars</option>
+                                                                <option>avril</option>
+                                                                <option>mai</option>
+                                                                <option>juin</option>
+                                                                <option>juillet</option>
+                                                                <option>août</option>
+                                                                <option>septembre</option>
+                                                                <option>octobre</option>
+                                                                <option>novembre</option>
+                                                                <option>décembre</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col mt-2">
+                                                            <label for="inputEmail4" class="form-label"></label>
+                                                            <select id="inputState" class="form-select">
+                                                                <option selected>Année</option>
+                                                                <option>2022</option>
+                                                                <option>2021</option>
+                                                                <option>2020</option>
+                                                                <option>2019</option>
+                                                                <option>2018</option>
+                                                                <option>2017</option>
+                                                                <option>2016</option>
+                                                                <option>2015</option>
+                                                                <option>2014</option>
+                                                                <option>2013</option>
+                                                                <option>2012</option>
+                                                                <option>2011</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="inputEmail4" class="form-label">Fin</label>
+                                                            <select id="inputState" class="form-select">
+                                                                <option selected>Mois</option>
+                                                                <option>janvier</option>
+                                                                <option> février</option>
+                                                                <option>mars</option>
+                                                                <option>avril</option>
+                                                                <option>mai</option>
+                                                                <option>juin</option>
+                                                                <option>juillet</option>
+                                                                <option>août</option>
+                                                                <option>septembre</option>
+                                                                <option>octobre</option>
+                                                                <option>novembre</option>
+                                                                <option>décembre</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col mt-2">
+                                                            <label for="inputEmail4" class="form-label"></label>
+                                                            <select id="inputState" class="form-select">
+                                                                <option selected class="disabled">Année</option>
+                                                                <option>2023</option>
+                                                                <option>2022</option>
+                                                                <option>2021</option>
+                                                                <option>2020</option>
+                                                                <option>2019</option>
+                                                                <option>2018</option>
+                                                                <option>2017</option>
+                                                                <option>2016</option>
+                                                                <option>2015</option>
+                                                                <option>2014</option>
+                                                                <option>2013</option>
+                                                                <option>2012</option>
+                                                                <option>2011</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3 mt-3">
+                                                        <textarea class="form-control" id="message-text" placeholder="Description"></textarea>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ferme</button>
+                                                <button type="button" class="btn btn-primary">Términe</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-outline-dark mt-3 mb-5" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><span> + </span> Activités extra-professionnelles</button>
+                                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel1">Activités extra-professionnelles</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="mb-3">
+                                                        <input type="text" class="form-control" id="recipient-name1" placeholder="Poste">
+                                                    </div>
+                                                    <div class="row mt-3">
+                                                        <div class="col">
+                                                            <label for="inputEmail4" class="form-label">Début</label>
+                                                            <select id="inputState" class="form-select">
+                                                                <option selected>Mois</option>
+                                                                <option>janvier</option>
+                                                                <option> février</option>
+                                                                <option>mars</option>
+                                                                <option>avril</option>
+                                                                <option>mai</option>
+                                                                <option>juin</option>
+                                                                <option>juillet</option>
+                                                                <option>août</option>
+                                                                <option>septembre</option>
+                                                                <option>octobre</option>
+                                                                <option>novembre</option>
+                                                                <option>décembre</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col mt-2">
+                                                            <label for="inputEmail4" class="form-label"></label>
+                                                            <select id="inputState" class="form-select">
+                                                                <option selected>Année</option>
+                                                                <option>2022</option>
+                                                                <option>2021</option>
+                                                                <option>2020</option>
+                                                                <option>2019</option>
+                                                                <option>2018</option>
+                                                                <option>2017</option>
+                                                                <option>2016</option>
+                                                                <option>2015</option>
+                                                                <option>2014</option>
+                                                                <option>2013</option>
+                                                                <option>2012</option>
+                                                                <option>2011</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="inputEmail4" class="form-label">Fin</label>
+                                                            <select id="inputState" class="form-select">
+                                                                <option selected>Mois</option>
+                                                                <option>janvier</option>
+                                                                <option> février</option>
+                                                                <option>mars</option>
+                                                                <option>avril</option>
+                                                                <option>mai</option>
+                                                                <option>juin</option>
+                                                                <option>juillet</option>
+                                                                <option>août</option>
+                                                                <option>septembre</option>
+                                                                <option>octobre</option>
+                                                                <option>novembre</option>
+                                                                <option>décembre</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col mt-2">
+                                                            <label for="inputEmail4" class="form-label"></label>
+                                                            <select id="inputState" class="form-select">
+                                                                <option selected class="disabled">Année</option>
+                                                                <option>2023</option>
+                                                                <option>2022</option>
+                                                                <option>2021</option>
+                                                                <option>2020</option>
+                                                                <option>2019</option>
+                                                                <option>2018</option>
+                                                                <option>2017</option>
+                                                                <option>2016</option>
+                                                                <option>2015</option>
+                                                                <option>2014</option>
+                                                                <option>2013</option>
+                                                                <option>2012</option>
+                                                                <option>2011</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3 mt-3">
+                                                        <textarea class="form-control" id="message-text1" placeholder="Description"></textarea>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ferme</button>
+                                                <button type="button" class="btn btn-primary">Términe</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <button class="btn btn-primary" type="button mt-5 mb-5"><a class="text-light" href="cv.html.twig">Suivant</a></button>
+                                    </div>
+
+
+                                </div>
+                            </div> #}
+                            </div>
+                        </div>
+
+
+                        <div class="col-6">
+                        </div>
+                    </div>
+
+                </section>
+                <script>
+                    // Récupération des éléments DOM
+                    const addBtn = document.querySelector('.add-btn');
+                    const deleteBtns = document.querySelectorAll('.delete-btn');
+                    const container = document.querySelector('#field-container');
+
+                    // Ajout d'un événement de clic sur le bouton "Ajouter"
+                    addBtn.addEventListener('click', () => {
+                        // Création d'un nouvel élément de champ
+                        const newField = document.createElement('div');
+                        newField.classList.add('row', 'mb-3');
+                        newField.innerHTML = `
+                          <div class="mb-3">
+                           <input type="text" name="formation" class="form-control mb-3" placeholder="Formation" required>
+                           </div>
+                          <div class="row">
+                        <div class="col"><input type="text" name="etablissement" class="form-control mb-3" placeholder="Établissement" required></div>
+                         <div class="col">
+                         <input type="text" name="lieu" class="form-control mb-3" placeholder="ville" required></div>
+                        </div>
+                      <div class="mb-3">
+                       <input type="text" name="description" class="form-control mb-3" placeholder="Description" required></div>
+             <div class="mb-3 mt-3 text-end">
+                  <button class="btn btn-danger delete-btn">Supprimer</button>
+                </div>
+
+              `;
+                        // Insertion du nouveau champ dans le conteneur
+                        container.appendChild(newField);
+                        // Ajout d'un événement de clic sur le bouton "Supprimer" du nouveau champ
+                        const newDeleteBtn = newField.querySelector('.delete-btn');
+                        newDeleteBtn.addEventListener('click', () => {
+                            // Suppression du champ correspondant
+                            newField.remove();
+                        });
+                    });
+
+                    // Ajout d'un événement de clic sur chaque bouton "Supprimer" déjà présent
+                    deleteBtns.forEach(deleteBtn => {
+                        deleteBtn.addEventListener('click', () => {
+                            // Suppression du champ correspondant
+                            deleteBtn.parentNode.parentNode.remove();
+                        });
+                    });
+
+
+                </script>
+                <script>
+                    const addBtn = document.querySelector('.add-btn');
+                    const deleteBtns = document.querySelectorAll('.delete-btn');
+                    const container = document.querySelector('#experiences-container');
+
+                    addBtn.addEventListener('click', () => {
+                        const index = document.querySelectorAll('[name^="form[experiences]"]').length;
+                        const newField = document.createElement('div');
+                        newField.classList.add('row', 'mb-3');
+                        newField.innerHTML = `
+                <div class="mb-3">
+                    ${form_widget(form.poste, {
+                            'full_name': `form[experiences][${index}][poste]`,
+                            'attr': {'class': 'form-control mb-3', 'required': false, 'placeholder': 'Poste'}
+                        })}
+                </div>
+                <div class="mb-3">
+                    ${form_widget(form.employer, {
+                            'full_name': `form[experiences][${index}][employer]`,
+                            'attr': {'class': 'form-control mb-3', 'required': false, 'placeholder': 'Employer'}
+                        })}
+                </div>
+                <div class="mb-3">
+                    ${form_widget(form.descriptionTravaille, {
+                            'full_name': `form[experiences][${index}][descriptionTravaille]`,
+                            'attr': {
+                                'class': 'form-control mb-3',
+                                'required': false,
+                                'placeholder': 'Description',
+                                'rows': 5
+                            }
+                        })}
+                </div>
+                <div class="mb-3 mt-3 text-end">
+                    <button class="btn btn-danger delete-btn">Supprimer</button>
+                </div>
+                `;
+                        container.appendChild(newField);
+                        const newDeleteBtn = newField.querySelector('.delete-btn');
+                        newDeleteBtn.addEventListener('click', () => {
+                            newField.remove();
+                        });
+                    });
+                </script>
+
+
+
+
+            {% endblock %}

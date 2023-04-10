@@ -1,0 +1,331 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+       <div class="row">
+            <div class="col-6">
+                <div class="container ms-0 mt-5">
+                    <div class="align-items-start">
+                        {% for message in app.flashes('notice') %}
+                            <div class="alert alert-success">{{ message }}</div>
+                        {% endfor %}
+
+                        <div class="col">
+                            {{ form_start(form) }}
+                            <div class="accordion" id="accordionPanelsStayOpenExample">
+                                <div class="accordion-item mt-5 ms-0 ">
+                                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                        <button class="accordion-button ms-0" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                                aria-controls="panelsStayOpen-collapseOne">
+                                            Informations personnelles
+                                        </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                                         aria-labelledby="panelsStayOpen-headingOne">
+                                        <div class="accordion-body mb-3">
+                                            <div class="row">
+                                                <div class="col mb-">
+                                                    <label class="required">
+                                                        <span class="text-dark">Prénom </span>
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    {{ form_widget(form.prenom,{'attr':{'class':'form-control mb-2' , 'required': true}}) }}
+                                                </div>
+                                                <div class="col">
+                                                    <label class="required">
+                                                        <span class="text-dark">Nom de famille </span>
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    {{ form_widget(form.nom_de_famille,{'attr':{'class':'form-control mb-2' ,'required': true}}) }}
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="required">
+                                                    <span class="text-dark">Adresse email </span>
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                {{ form_widget(form.email,{'attr':{'class':'form-control mb-3' ,'required': true}}) }}
+                                            </div>
+                                            <div class="mb-3 ">
+                                                {{ form_label(form.titre_du_profil, 'Titre du profil ', {'label_attr': {'class': 'text-dark'}}) }}
+                                                {{ form_widget(form.titre_du_profil,{'attr':{'class':'form-control mb-3','required': false}}) }}
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="required">
+                                                    <span class="text-dark">Numéro de téléphone </span>
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                {{ form_widget(form.numero,{'attr':{'class':'form-control mb-3' ,'required': true}}) }}
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ form_label(form.adresse, 'Adresse', {'label_attr': {'class': 'text-dark'}}) }}
+                                                {{ form_widget(form.adresse,{'attr':{'class':'form-control mb-3' ,'required': false}}) }}
+                                            </div>
+                                            <div class="row g-6">
+                                                <div class="col-sm-7">
+                                                    {{ form_label(form.codePostal, 'Code postal', {'label_attr': {'class': 'text-dark'}}) }}
+                                                    {{ form_widget(form.codePostal,{'attr':{'class':'form-control mb-3' ,'required': false}}) }}
+                                                </div>
+                                                <div class="col-sm">
+                                                    {{ form_label(form.ville, 'Ville', {'label_attr': {'class': 'text-dark'}}) }}
+                                                    {{ form_widget(form.ville,{'attr':{'class':'form-control mb-3' ,'required': false}}) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                        <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo"
+                                                aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                            Profil
+                                        </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                                         aria-labelledby="panelsStayOpen-headingTwo">
+                                        <div class="accordion-body">
+                                            <div class="mb-3">
+                                                {{ form_widget(form.profil, {'attr': {'class': 'form-control mb-3', 'rows': 5 ,'required': false,'placeholder':'Description de profil'}}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                                        <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree"
+                                                aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                                            Formation
+                                        </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                                         aria-labelledby="panelsStayOpen-headingThree">
+                                        <div class="accordion-body" id="field-container">
+                                            <div class="mb-3">
+                                                {{ form_widget(form.formation,{'attr':{'class':'form-control mb-3' ,'required': false,'placeholder':'Formation'}}) }}
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ form_widget(form.niveauEtudes,{'attr':{'class':'form-control mb-3' ,'required': false,'placeholder':'Niveau d\'etudes'}}) }}
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">{{ form_widget(form.etablissement,{'attr':{'class':'form-control mb-3' ,'required': false,'placeholder':'Établissement'}}) }}</div>
+                                                <div class="col">{{ form_widget(form.lieu,{'attr':{'class':'form-control mb-3' ,'required': false,'placeholder':'ville'}}) }}</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    {{ form_label(form.dateDebut, 'Date debut', {'label_attr': {'class': 'text-dark'}}) }}
+                                                    {{ form_widget(form.dateDebut,{'attr':{'class':' mb-3' ,'required': false}}) }}
+                                                </div>
+                                                <div class="col">
+                                                    {{ form_label(form.dateFin, 'Date fin') }}
+                                                    {{ form_widget(form.dateFin,{'attr':{'class':' mb-3' ,'required': false}}) }}
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ form_widget(form.description, {'attr': {'class': 'form-control mb-3', 'rows': 5,'required': false,'placeholder':'Description'}}) }}
+                                            </div>
+                                            <div class="mb-3 mt-3 text-end">
+                                                <button class="btn btn-primary add-btn">Ajouter</button>
+                                                <button class="btn btn-danger delete-btn">Supprimer</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="panelsStayOpen-headingfour">
+                                        <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsefour"
+                                                aria-expanded="false" aria-controls="panelsStayOpen-collapsefour">
+                                            Expérience professionnelle
+                                        </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapsefour" class="accordion-collapse collapse"
+                                         aria-labelledby="panelsStayOpen-headingfour">
+                                        <div class="accordion-body" id="field-container1">
+                                            <div class="mb-3">
+                                                {{ form_widget(form.poste,{'attr':{'class':'form-control mb-3' ,'required': false,'placeholder':'Poste'}}) }}
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ form_widget(form.employer,{'attr':{'class':'form-control mb-3','required': false,'placeholder':'Employer'}}) }}
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    {{ form_label(form.dateDebutTravaille, 'Date debut') }}
+                                                    {{ form_widget(form.dateDebutTravaille,{'attr':{'class':' mb-3' ,'required': false}}) }}
+                                                </div>
+                                                <div class="col">
+                                                    {{ form_label(form.dateFinTravaille, 'Date fin') }}
+                                                    {{ form_widget(form.dateFinTravaille,{'attr':{'class':' mb-3' ,'required': false}}) }}
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ form_widget(form.descriptionTravaille, {'attr': {'class': 'form-control mb-3', 'rows': 5,'required': false,'placeholder':'Description'}}) }}
+                                            </div>
+
+                                            <div class="mb-3 mt-3 text-end">
+                                                <button class="btn btn-primary add-experience-btn">Ajouter</button>
+                                                <button class="btn btn-danger delete-experience-btn">Supprimer</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="panelsStayOpen-headingfive">
+                                        <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsefive"
+                                                aria-expanded="false" aria-controls="panelsStayOpen-collapsefive">
+                                            Compétences
+                                        </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapsefive" class="accordion-collapse collapse"
+                                         aria-labelledby="panelsStayOpen-headingfive">
+                                        <div class="accordion-body" id="field-container2">
+                                            <div class="mb-3">
+                                                {{ form_widget(form.competence,{'attr':{'class':'form-control mb-3' ,'required': false,'placeholder':'Compétence'}}) }}
+                                            </div>
+                                            <div class="mb-3 mt-3 text-end">
+                                                <button class="btn btn-primary add-btn">Ajouter</button>
+                                                <button class="btn btn-danger delete-btn">Supprimer</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="panelsStayOpen-headingfive">
+                                        <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsefive"
+                                                aria-expanded="false" aria-controls="panelsStayOpen-collapsefive">
+                                            Langue
+                                        </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapsefive" class="accordion-collapse collapse"
+                                         aria-labelledby="panelsStayOpen-headingfive">
+                                        <div class="accordion-body" id="field-container3">
+                                            <div class="mb-3">
+                                                {{ form_widget(form.langue,{'attr':{'class':'form-control mb-3' ,'required': false,'placeholder':'Langue'}}) }}
+                                            </div>
+                                            <div class="mb-3 mt-3 text-end">
+                                                <button class="btn btn-primary add-btn">Ajouter</button>
+                                                <button class="btn btn-danger delete-btn">Supprimer</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="panelsStayOpen-headingfive">
+                                        <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsefive"
+                                                aria-expanded="false" aria-controls="panelsStayOpen-collapsefive">
+                                            Centres d'intérêt
+                                        </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapsefive" class="accordion-collapse collapse"
+                                         aria-labelledby="panelsStayOpen-headingfive">
+                                        <div class="accordion-body" id="field-container4">
+                                            <div class="mb-3">
+                                                {{ form_widget(form.interet,{'attr':{'class':'form-control mb-3' ,'required': false,'placeholder':'Centres d\'intérêt'}}) }}
+                                            </div>
+                                            <div class="mb-3 mt-3 text-end">
+                                                <button class="btn btn-primary add-btn">Ajouter</button>
+                                                <button class="btn btn-danger delete-btn">Supprimer</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+    </div>
+            <div class="col-6">
+                <div class="row mt-5">
+                <div class="col-lg-4 bg-dark text-white text-center py-4 mt-5">
+                    <div class="header-left">
+                        <h1 class="display-5 ">{{ information.prenom }} {{ information.nomDeFamille }}</h1>
+                        <h4 class="lead text-uppercase text-white-50 mb-4">{{ information.titreDuProfil }}</h4>
+                    </div>
+                    <div>
+                        <h5 class="text-uppercase bg-white text-dark py-2 rounded-pill">contact</h5>
+                        <ul class="list-unstyled text-white-50 ml-5 py-2 text-left ">
+                            <li class="list-item">
+                                <i class="fas fa-mobile-alt mx-4 mt-2 mb-2">
+                                    {{ information.numero }}
+                                </i>
+                            </li>
+                            <li class="list-item">
+                                <i class="fas fa-envelope-open-text mx-4 mt-2 mb-2">
+                                    {{ information.email }}
+                                </i>
+                            </li>
+                            <li class="list-item">
+                                <i class="fas fa-map-marker-alt mx-4 mt-2 mb-2">
+                                    {{ information.adresse }}{{ information.codePostal }}{{ information.ville }}
+                                </i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="text-uppercase bg-white text-dark py-2 rounded-pill">education</h5>
+                        <ul class="list text-white-50 ml-5 py-5 py-2 text-left text-capitalize">
+                            <li class="list-item mx-0">{{ information.formation }} - {{ information.etablissement }}
+                                - {{ information.lieu }}</li>
+                            <li class="list-item"></li>
+                            <li class="list-item"></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="text-uppercase bg-white text-dark py-2 rounded-pill">skills</h5>
+                        <ul class="list text-white-50 ml-5 py-5 py-2 text-left text-capitalize">
+                            <li class="list-item mx-0">{{ information.competence }}</li>
+                            <li class="list-item"></li>
+                            <li class="list-item"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-8 bg-light text-dark py-4 px-5">
+                    <div class="header-right ">
+                        <h4 class="text-uppercase">Profil</h4>
+                        <hr>
+                        <p>
+                            {{ information.profil }}
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="text-uppercase">work experience</h4>
+                        <hr>
+                        <ul class="list">
+                            <li class="list-item">
+                                <h5 class="display-6 text-uppercase">{{ information.poste }}</h5>
+                                <h6 class="text-uppercase text-black-50">{{ information.employer }}
+                                    - {{ information.dateDebutTravaille|date('d/m/Y') }}-
+                                    {{ information.dateFinTravaille|date('d/m/Y') }}
+                                </h6>
+                                <p>{{ information.descriptionTravaille }}</p>
+                            </li>
+                            <li class="list-item">
+                                <h5 class="display-6 text-uppercase"></h5>
+                                <h6 class="text-uppercase text-black-50"></h6>
+                                <p></p>
+                            </li>
+                            <li class="list-item">
+                                <h5 class="display-6 text-uppercase"></h5>
+                                <h6 class="text-uppercase text-black-50"></h6>
+                                <p></p>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="/information.pdf" download>Télécharger le fichier</a>
+
+
+
+    </div>
+{% endblock %}

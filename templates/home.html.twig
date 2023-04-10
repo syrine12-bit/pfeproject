@@ -1,0 +1,488 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <section>
+        <div class="container my-4 mt-5">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center">
+                    <h1 class="fs-1 mb-5 mt-5 text-B9F3E4 fst-italic">Faire un CV en ligne</h1>
+                    <p class="fs-4 mb-5 mt-5 text-EA8FEA">Télécharger simple et facile un CV professionel en quelques
+                        minutes.</p>
+                    <a class="btn btn-primary text-light btn-lg mb-5 mt-5" href="{{ path('cv_new') }}">Créer un
+                        CV</a>
+                </div>
+                <div class="col-md-6">
+                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="images/cv1.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/cv2.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/cv3.png" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section>
+        <div class="row bg-secondary">
+            <div class="col-md-4 mb-5">
+                <a href="images/cv1.jpg" data-caption="Légende de l'image 1" data-bs-toggle="lightbox">
+                    <img src="images/cv1.jpg" class="img-fluid mt-5">
+                </a>
+            </div>
+            <div class="col-md-4 mb-5 ">
+                <a href="images/cv2.jpg" data-caption="Légende de l'image 2" data-bs-toggle="lightbox">
+                    <img src="images/cv2.jpg" class="img-fluid mt-5">
+                </a>
+            </div>
+            <div class="col-md-4 mb-5">
+                <a href="images/cv3.png" data-caption="Légende de l'image 3" data-bs-toggle="lightbox">
+                    <img src="images/cv3.png" class="img-fluid mt-5" data-bs-toggle="lightbox">
+                </a>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container my-4 mt-5">
+            <div class="row">
+                <div class="col-md-8 offset-md-2 text-center">
+                    <h1 class="fs-1 mb-5 mt-5 fst-italic">Comment ça marche ?</h1>
+                    <div class="row">
+                        <div class="col-md-6 mb-5">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Remplissez vos infos</h5>
+                                    <p class="card-text">Vous commencez par saisir vos infos qui constituent le contenu
+                                        de votre CV</p>
+                                    <div class="loader"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-5">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Télécharger le CV</h5>
+                                    <p class="card-text">Téléchargez votre CV immédiatement et modifiez-le à tout
+                                        moment.simplissime!</p>
+                                    <div class="loader"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-dark">
+        <div class="container my-4 mt-5">
+            <div class="row">
+                <div class="col-md-8 offset-md-2 text-center">
+                    <h1 class="fs-1 mb-5 mt-5 text-light fst-italic">Évaluation</h1>
+                    <p class="fs-4 mb-5 mt-5 text-light">4.3 / 5 </p>
+                    <p class="fs-4 mb-5 mt-5 text-light">Basé sur 16 117 avis sur <span
+                                class="fw-light">Trustpilot</span></p>
+                    <div class="container-fluid">
+                        <div class="row px-0">
+                            <div class="col-md-4 mb-5">
+                                <div class="card bg-secondary h-100 w-100">
+                                    <div class="card-body">
+                                        <img src="public/images/personne1.jpg" alt="your-image" class="rounded-circle"
+                                             style="">
+                                        <h5 class="card-title mt-3">Remi</h5>
+                                        <h6 class="card-subtitle mb-2 text-light">Développeur</h6>
+                                        <p class="card-text">Excellent site Web pou créer facilement un Curriculum Vitae
+                                            de manière convivale.Conseillé!</p>
+                                        <div class="loader"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-5">
+                                <div class="card bg-secondary h-100 w-100">
+                                    <div class="card-body">
+                                        <img src="public/images/personne2.jpg" alt="your-image" class="rounded-circle">
+                                        <h5 class="card-title mt-3">Adeline</h5>
+                                        <h6 class="card-subtitle mb-2 text-light">Téléconseiller</h6>
+                                        <p class="card-text">En plus de créer un joli CV, les autres outils sont trés
+                                            utiles lors de la recherche d'un emploi</p>
+                                        <div class="loader"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-5">
+                                <div class="card bg-secondary h-100 w-100">
+                                    <div class="card-body">
+                                        <img src="public/images/personne3.jpg" alt="your-image" class="rounded-circle">
+                                        <h5 class="card-title mt-3">Oscar</h5>
+                                        <h6 class="card-subtitle mb-2 text-light">Recruteur</h6>
+                                        <p class="card-text">Site vraiment fantastique.Produit des CV professionnels de
+                                            premier ordre qui se démarquent de la foule.</p>
+                                        <div class="loader"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+    </section>
+    <section>
+        <div class="container my-4 mt-5">
+            <div class="row ">
+                <div class="col-md-8 offset-md-2 text-center">
+                    <h1 class="fs-1 mb-5 mt-5 text-B9F3E4 fst-italic">Foire aux questions</h1>
+
+                    <div class="accordion accordion-flush mb-5" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                        aria-controls="flush-collapseOne">
+                                    Qu'est-ce qu'un CV?
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                 aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body text-start">CV (Curriculum Vitae) signifie en latin “carrière
+                                    de la vie”. Une façon poétique de désigner “le dossier comportant l’ensemble des
+                                    indications concernant l’état civil d’un candidat à un poste, ses diplômes, son
+                                    expérience professionnelle, etc.”, selon la définition du dictionnaire français
+                                    Larousse.
+
+                                    Elément indispensable de toute recherche d’emploi, le curriculum vitae se doit de
+                                    renseigner l’employeur sur votre profil, vos compétences et et votre parcours. Et
+                                    face à la concurrence des nombreux candidats qui postulent aux mêmes emplois, il est
+                                    important d’avoir un CV attractif pour sortir du lot et attirer l’œil des recruteurs
+                                    !
+
+                                    Le but premier du CV est de mettre en avant vos qualités, compétences, et atouts et
+                                    d’atténuer le plus possible vos points faibles ou accidents de parcours. En effet,
+                                    le curriculum vitae doit montrer le meilleur de votre personnalité et de vos
+                                    compétences afin d’apparaître comme le candidat idéal aux yeux des recruteurs ! Il
+                                    doit donc donner une image positive de votre candidature.
+
+                                    Bien sûr il n’existe aucune “loi” qui vous oblige à avoir un CV, mais décrocher un
+                                    job sans en avoir un est quasiment mission impossible ! Même si quelqu’un vous
+                                    recommande à un recruteur, par exemple, celui-ci vous demandera certainement votre
+                                    CV pour se faire une idée de votre parcours et de vos compétences. Avoir un CV est
+                                    donc absolument indispensable ! Pensez également à garder votre CV à jour afin qu’il
+                                    contienne toujours vos dernières expériences professionnelles ou formations. Il est
+                                    donc important de toujours le relire avant de l’envoyer à un recruteur, pour être
+                                    sûr que vous n’avez rien oublié !
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingTwo">
+                                <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                        aria-controls="flush-collapseTwo">
+                                    Que mettre dans un CV ?
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                 aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body text-start">L’état civil et les coordonnées
+
+                                    Le nom, la ville, le numéro de téléphone et l’adresse mail font partie des
+                                    informations essentielles à tout CV. On peut ensuite choisir d’ajouter ou non une
+                                    photo, de mentionner sa date de naissance, son permis de conduire, son état
+                                    matrimonial, sa nationalité ou encore ses réseaux sociaux.
+
+                                    Le profil personnel
+
+                                    Ajouter un petit texte pour se présenter n’est pas systématique mais c’est une bonne
+                                    façon d’ajouter une touche personnelle à son CV ! Le profil personnel ou le résumé
+                                    personnel d’un CV consiste à résumer en quelques mots ou phrases qui vous-êtes et
+                                    quels sont vos compétences et objectifs, afin de vous présenter aux employeurs. De
+                                    cette manière, cela ajoute une touche personnelle à votre CV et permet aux
+                                    recruteurs de savoir immédiatement quel poste vous recherchez ou quels sont vos
+                                    atouts. Cette sorte d’introduction se doit d’être accrocheuse, afin de donner envie
+                                    aux recruteurs d’en savoir plus sur vous et de lire votre CV dans son intégralité !
+                                    Mieux vaut donc privilégier une accroche courte et qui répond au profil recherché
+                                    par l’employeur.
+
+                                    La formation
+
+                                    Baccalauréat, grandes écoles, universités… Vos domaines de formation, vos études et
+                                    vos diplômes sont des éléments absolument essentiels dans la rédaction de votre CV.
+                                    En effet, ces informations, avec vos expériences professionnelles, font partie des
+                                    plus importantes pour les recruteurs puisqu’elles leurs permettent de savoir où et
+                                    comment vous avez été formé, votre niveau de qualification et dans quel(s)
+                                    domaine(s) vous êtes compétents. Le niveau de qualification peut d’ailleurs avoir un
+                                    impact sur la rémunération, par exemple.
+
+                                    L’expérience professionnelle
+
+                                    Dans cette rubrique, dites-en plus aux recruteurs sur vos expériences
+                                    professionnelles, qu’il s’agisse de vos stages ou précédents emplois. De cette
+                                    manière, les recruteurs pourront se faire une idée plus précise de votre parcours et
+                                    des missions qui ont été les vôtres au cours de vos précédents emplois, et ainsi en
+                                    savoir plus sur vos compétences et ce que vous êtes capable d’accomplir. Pensez donc
+                                    à donner des exemples concrets, comme la publication d’un étude, ou chiffrés si vous
+                                    avez fait de bons résultats dans une précédente entreprise.
+
+                                    Les compétences
+
+                                    Indiquer vos compétences et donc vos savoir-faire fait partie des incontournables de
+                                    tout CV. Il peut s’agir des compétences informatiques (Excel, Photoshop, InDesign…)
+                                    mais aussi de savoir-faire, aptitudes ou activités apprises ou que vous maîtrisez et
+                                    qui peuvent être développées. Ce peut être la capacité à modéliser des maquettes en
+                                    3D, par exemple, réaliser des moulures ou à piloter une grue. Dans tous les cas, ces
+                                    compétences doivent permettre de montrer aux recruteurs que vous êtes capables de
+                                    mener à bien des missions particulières, qui vous distinguent des autres candidats !
+
+                                    Les langues étrangères
+
+                                    Sans être forcément bilingue, les langues sont un atout de taille dans la recherche
+                                    d’emploi et doivent donc apparaître dans le CV. Anglais, espagnol, italien,
+                                    allemand, russe, japonais, chinois… Si l’anglais est la langue la plus courante, les
+                                    autres langues étrangères que l’on maîtrise peuvent être un sérieux atout pour sa
+                                    candidature et permettre de se démarquer des autres candidats. Pensez à indiquer
+                                    votre niveau, avec honnêteté, pour chacune d’entre elles !
+
+                                    Les centres d’intérêts et hobbies
+
+                                    Si vous avez une ou plusieurs passions, vous pouvez tout à fait les mentionner sur
+                                    votre CV ! Cela permettra aux recruteurs d’en savoir un peu plus sur votre
+                                    personnalité et de vous démarquer des autres candidats à un même poste. Nous vous
+                                    recommandons d’indiquer quatre hobbies au maximum, afin de ne pas surcharger votre
+                                    CV. Ceux que vous choisissez doivent donc présenter un intérêt tout particulier et
+                                    être un véritable atout pour le poste visé. Pour vous démarquer des autres
+                                    candidatures, choisissez des passions qui sont spéciales et qui montrent votre
+                                    personnalité.
+
+                                    À ces rubriques “classiques” peuvent bien sûr s’en ajouter d’autres.
+
+                                    Les activités extra professionnelles
+
+                                    Il n’y a pas que les expériences professionnelles qui comptent dans un CV. Si vous
+                                    êtes le trésorier d’une association sportive, que vous êtes engagé dans une
+                                    organisation humanitaire ou que vous pratiquez l’alpinisme à haut niveau, dites-le !
+                                    Tout comme vos expériences professionnelles ou vos centres d’intérêts, ces activités
+                                    mettent en avant vos compétences et permettent d’en apprendre plus sur votre
+                                    personnalité.
+
+                                    Les cours
+
+                                    Vous vous êtes lancé dans un cours d’histoire de l’art, dans un atelier de
+                                    menuiserie ou vous avez appris de nouvelles compétences en ligne, sur internet,
+                                    grâce aux MOOC ? Dites-le dans votre CV ! Ces cours élargissent votre champ de
+                                    compétences et montrent aux recruteurs que vous êtes curieux et prêt à apprendre de
+                                    nouvelles choses. Cela ne pourra que leur plaire !
+
+                                    Les stages
+
+                                    Les stages sont une expérience professionnelle à part entière et, si vous faites
+                                    votre entrée sur le marché du travail, il peut être bien de créer une rubrique qui
+                                    leur est dédiée. Si vous avez déjà réalisé plusieurs stages, il est important, comme
+                                    c’est le cas pour toute expérience professionnelle, de ne mentionner que ceux qui
+                                    ont un véritable intérêt pour le poste visé.
+
+                                    Les objectifs
+
+                                    Mentionner son objectif professionnel sur son CV permet d’informer les recruteurs
+                                    sur vos aspirations, les choix de carrière que vous aimeriez faire et quels sont vos
+                                    buts professionnels. Et cela prouve que vous avez de l’ambition !
+
+                                    Les références
+
+                                    Les références consistent à donner les coordonnées d’anciens contacts professionnels
+                                    afin que les recruteurs puissent les contacter pour vérifier vos informations mais
+                                    surtout pour connaître vos qualités et compétences et savoir quelle expérience cela
+                                    a été de travailler avec vous. De cette manière, les recruteurs en sauront aussi un
+                                    peu plus sur votre personnalité !
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingThree">
+                                <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                        aria-controls="flush-collapseThree">
+                                    Comment faire un CV ?
+                                </button>
+                            </h2>
+                            <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                 aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body text-start">Vous avez vu passer ou entendu parler d’un poste
+                                    qui se libère dans une entreprise : cela tombe bien, c’est exactement le job dont
+                                    vous avez toujours rêvé et/ou l’entreprise où vous avez toujours voulu travailler.
+                                    Vous voulez donc répondre à cette offre d’emploi ! Pour contacter le recruteur et
+                                    lui montrer que vous êtes le candidat idéal pour ce poste, vous avez besoin d’un CV.
+                                    Ce document va en effet lui permettre de connaître en une ou deux pages vos
+                                    qualités, expériences et compétences. Cela va également lui donner la possibilité de
+                                    comparer votre candidature – et ses atouts – à celles d’autres candidats. Le CV doit
+                                    donc montrer aux recruteurs ce que vous allez pouvoir apporter à l’entreprise ! Il
+                                    est donc temps de faire votre curriculum vitae. Le CV peut être créé sur un logiciel
+                                    de traitement de texte ou sur un générateur de CV, comme par exemple CV.fr.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mb-5">
+                            <h2 class="accordion-header" id="flush-headingThree">
+                                <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                        aria-controls="flush-collapseThree">
+                                    Conseils pour créer un bon CV
+                                </button>
+                            </h2>
+                            <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                 aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body text-start">Voici quelques règles à suivre pour vous y aider
+                                    :
+
+                                    <p class="fs-5">organiser votre CV :</p> les différentes rubriques d’un CV (état
+                                    civil, coordonnées, formations, expériences professionnelles…) permettent
+                                    d’organiser votre CV et de rendre sa lecture plus clair et plus agréable. Il est
+                                    donc important de créer différentes rubriques et de ne pas mettre toutes les
+                                    informations en un seul bloc.</br>
+
+                                    <p class="fs-5 ">rédiger chaque information de façon claire et concise :</p> lors de
+                                    la rédaction de votre CV, essayez toujours d’aller à l’essentiel pour que les
+                                    recruteurs comprennent immédiatement de quelle formation ou expérience
+                                    professionnelle il s’agit. Utilisez des mots simples et évitez les acronymes sauf
+                                    s’ils sont vraiment incontournables.
+                                    évitez le trop plein d’informations : pour éviter de surcharger votre CV, faites le
+                                    tri dans les informations que vous voulez mentionner afin de ne faire apparaître que
+                                    celles qui présentent un véritable intérêt pour le poste envisagé ! Votre CV ne doit
+                                    pas contenir l’ensemble de vos formations, expériences professionnelles et centres
+                                    d’intérêts, mais seulement ceux qui sont un atout pour votre candidature.
+                                    deux pages maximum : concernant la longueur de votre CV, nous vous conseillons de ne
+                                    pas dépasser deux pages A4 maximum. Au-delà, les recruteurs risqueraient de ne pas
+                                    lire votre CV dans son intégralité. Ils en reçoivent en général beaucoup et n’ont
+                                    pas le temps de se lancer dans la lecture d’un roman !
+                                    soyez positif : ne mettez en avant sur votre CV que des informations qui jouent en
+                                    votre faveur et donnent une bonne image de vous. Parlez donc de vos points forts,
+                                    vos qualités et vos compétences.
+                                    Rédiger son CV demande beaucoup de rigueur, et quelques erreurs sont à éviter afin
+                                    de se donner toutes les chances de décrocher le job de ses rêves. Voici quelques
+                                    unes des plus courantes :
+
+                                    ne pas mettre son CV régulièrement à jour : assurez-vous de toujours mettre à jour
+                                    votre CV avant de l’envoyer aux recruteurs, afin qu’il reflète votre situation
+                                    actuelle.
+                                    les fautes d’orthographe : sur un CV, l’orthographe doit être irréprochable afin de
+                                    donner la meilleure image aux recruteurs. On relit donc son CV plusieurs fois, voire
+                                    on le fait relire par un proche !
+                                    une mise en page bâclée : la forme compte autant que le fond ! Il est donc important
+                                    de soigner la mise en page de son CV en créant des titres, en l’aérant et en
+                                    utilisant une police de caractère agréable à lire afin de donner envie aux
+                                    recruteurs de se plonger dans sa lecture.
+                                    donner trop d’informations personnelles : ne mentionnez sur votre CV que les
+                                    informations qui ont un véritable intérêt pour le poste convoité. Ainsi évitez de
+                                    donner trop d’informations personnelles sur vous (statut matrimonial, enfants, lieu
+                                    de naissance…) si cela n’est pas nécessaire.
+                                    des “trous” dans son CV : évitez à tout prix de laisser des “trous” dans votre CV,
+                                    c’est-à-dire des périodes d’inactivité où vous n’avez ni suivi de formation ni
+                                    réalisé d’expérience professionnelle, car cela donnerait une mauvaise image de vous
+                                    aux recruteurs. Si vous avez pris du temps pour vous occuper de votre famille ou si
+                                    vous avez voyagé, dites-le.
+                                    une photo qui n’est pas professionnelle : si vous choisissez d’ajouter une photo sur
+                                    votre CV, n’utilisez pas celle de vos dernières vacances ! La photo de votre CV se
+                                    doit d’être professionnelle.
+                                    éviter les formules toutes faites : lors de la rédaction de votre CV, bannissez les
+                                    tournures du type “Je suis le candidat qu’il vous faut” ou “j’aime sortir des
+                                    sentiers battus” qui la plupart du temps exaspèrent les recruteurs.
+                                    indiquer vos prétentions salariales : le CV n’est pas le lieu pour indiquer le
+                                    salaire que vous visez. Vous aurez tout le temps d’aborder le sujet au moment de
+                                    l’entretien d’embauche !
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </section>
+    <section class="bg-secondary">
+        <div class="container my-4 mt-5">
+            <div class="row ">
+                <div class="col-md-8 offset-md-2 text-center">
+                    <h1 class="fs-1 mb-5 mt-5 text-B9F3E4 fst-italic">Créez votre CV professionnel</h1>
+                    <p class="fs-4 mb-5 mt-5 text-EA8FEA">Remplissez le formulaire, choisissez un modèle et téléchargez
+                        votre CV en quelques minutes.</p>
+                    <a class="btn btn-primary text-light btn-lg mb-5 mt-5">Créer un CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div>
+            <div class="container my-4 mt-5">
+                <div class="row align-items-center">
+                    <div class="col-md-3 text-center">
+                        <h1 class="fs-5 mb-3 mt-1">Ressources</h1>
+                        <p class="fs-6 mb-3 mt-3">Conseils</p>
+                        <p class="fs-6 mb-5 mt-3">Exemples</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h1 class="fs-5 mb-3 mt-1">Produit</h1>
+                        <p class="fs-6 mb-3 mt-3">Prix</p>
+                        <p class="fs-6 mb-3 mt-3">Modèles</p>
+                        <p class="fs-6 mb-5 mt-3">Commentaires</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h1 class="fs-5 mb-3 mt-5">Service client</h1>
+                        <p class="fs-6 mb-3 mt-3">FAQ</p>
+                        <p class="fs-6 mb-3 mt-3">Contact</p>
+                        <p class="fs-6 mb-3 mt-3">Conditions générales</p>
+                        <p class="fs-6 mb-3 mt-3">Politique de confidentialité</p>
+                        <p class="fs-6 mb-5 mt-3">À propos</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle mt-1 mb-5" type="button"
+                                    id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                Français
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                                <li><a class="dropdown-item active" href="#">Français</a></li>
+                                <li><a class="dropdown-item" href="#">Nederlands</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">svenska</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="container my-4 mt-5">
+                <div class="row align-items-center">
+                    <div class="col-md-4 text-center mb-5 mt-5">
+                        <i class="fab fa-instagram"></i>
+
+
+                    </div>
+                    <div class="col-md-4 text-center mb-5 mt-5">
+                        <i class="bi bi-twitter"></i>
+
+                    </div>
+                    <div class="col-md-4 text-center mb-5 mt-5">
+                        <i class="bi bi-linkedin"></i>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+{% endblock %}
